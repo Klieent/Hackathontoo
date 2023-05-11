@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./assets/images/talleco_logo_bg.png">
-    <title>Activity</title>
+    <title>INTERN</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="css/simplebar.css">
     <!-- Fonts CSS -->
@@ -70,7 +70,7 @@
               <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
               <br>
               <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u>{mentor name}</u></span>
+                <span><u>{INTERN name}</u></span>
               </p>
             </a>
           </div>
@@ -89,41 +89,41 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
-              <h2 class="h3 mb-4 page-title">MENTOR DASHBOARD</h2>
+              <h2 class="h3 mb-4 page-title">INTERN DASHBOARD</h2>
               <div class="my-4">
                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link  h4" href="dashboard.php" >Lessons</a>
+                  <a class="nav-link active h4" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lessons</a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link h4 active" id="profile-tab" href="classwork.php">Activity</a>
+                    <a class="nav-link h4" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link h4" id="contact-tab" href="interns.php">Interns</a>
-                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link h4" id="contact-tab" href="interns.php" >Interns</a>
+                  </li> -->
                 </ul>
 
                 <!-- start contents -->
                 <div class="tab-content" id="myTabContent">
                   <!-- start lesson -->
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div>
-                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#verticalModal">Add Activity</button>
-                    </div>
                     <br>
                     <!-- start main bodyyyy -->
                     <div class="main-body">
                       <div class="card shadow ">
                         <div class="card-body">
-                          <h3 class="mb-0 mt-3"><u>{Activity name}</u></h3>
+                          <h2 class="mb-0 mt-3"><u>{Lessons name}</u></h2>
                           <br>
                           <p>
                           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </div>
-
-                      </div>
-                     
+                        <div class="pr-3 pb-3">
+                          <div class="float-right">
+                            <span class="mr-3 h3">Filename.pdf</span>
+                            <button class="float-right btn btn-primary">Download</button>
+                          </div>
+                        </div>
                     </div>
                   </div><!-- start main bodyyyy -->
                   
@@ -145,44 +145,6 @@
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. </div>
                 </div>
                 <!-- end contents -->
-
-                <!-- start modal add -->
-                <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content ">
-                      <div class="modal-header">
-                        <h1 class="modal-title" id="verticalModalTitle">Add Activity</h1>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="row p-3">
-                          <label for="" class="h4">Activity name</label>
-                          <input type="text" id="simpleinput" class="form-control">
-                        </div>
-                        <div class="row p-3">
-                          <label for="" class="h4">Activity Content</label>
-                          <textarea type="text" id="" name="" cols="30" rows="10" class="form-control" style="resize:none;"></textarea>
-                        </div>
-                        <div class=" p-3">
-                          <label for="" class="h4">Attach File</label>
-                          <br>
-                          <div>
-                            <input type="file" class="form-control">
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn mb-2 btn-primary">Add</button>
-                        </div>
-                      </div>
-                      
-                  </div>
-                  
-                </div>
-                <!-- end modal add -->
                 
 
               </div> <!-- /.card-body -->

@@ -70,7 +70,7 @@
               <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
               <br>
               <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u>{mentor name}</u></span>
+                <span><u>{intern name}</u></span>
               </p>
             </a>
           </div>
@@ -89,27 +89,24 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
-              <h2 class="h3 mb-4 page-title">MENTOR DASHBOARD</h2>
+              <h2 class="h3 mb-4 page-title">INTERN DASHBOARD</h2>
               <div class="my-4">
                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link  h4" href="dashboard.php" >Lessons</a>
+                  <a class="nav-link  h4" href="index.php" >Lessons</a>
                 </li>
                   <li class="nav-item">
                   <a class="nav-link h4 active" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link h4" id="contact-tab" href="interns.php">Interns</a>
-                  </li>
+                  </li> -->
                 </ul>
 
                 <!-- start contents -->
                 <div class="tab-content" id="myTabContent">
                   <!-- start lesson -->
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div>
-                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#verticalModal">Add Activity</button>
-                    </div>
                     <br>
                     <!-- start main bodyyyy -->
                     <div class="main-body">
@@ -121,9 +118,27 @@
                           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </div>
-
+                        <div class="row">
+                          <div class="col">
+                            <div class="pr-3 pb-3">
+                              <div class="">
+                                <button class="float-right btn btn-primary">Download</button>
+                                <span class="ml-3 mr-3 float-right h3">Filename.pdf</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row  p-3">
+                          <div class="col float-right">
+                            <input type="file" class="form-control p-1">
+                          </div>
+                          <div class="col">
+                            <button class=" btn btn-primary">Upload</button>
+                          </div>
+                        </div>
                       </div>
-                     
                     </div>
                   </div><!-- start main bodyyyy -->
                   
