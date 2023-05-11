@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="./assets/images/talleco_logo_bg.png">
-    <title>Service Providers</title>
+    <title>Interns</title>
+
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="css/simplebar.css">
     <!-- Fonts CSS -->
@@ -99,6 +100,18 @@
                 <a class="nav-link pl-3" href="./interns.html"><span class="ml-1">Interns</span></a>
                 
               </ul>
+              <!-- <li class="nav-item dropdown">
+                <a href="./subscription.html"  aria-expanded="false" class=" nav-link">
+                  <i class="fe fe-credit-card fe-16"></i>
+                  <span class="ml-3 item-text">Subscription Management</span>
+                </a>              
+              </li>
+              <li class="nav-item dropdown">
+                <a href="profile-settings.html"  aria-expanded="false" class=" nav-link">
+                  <i class="fe fe-16 fe-settings"></i>
+                  <span class="ml-3 item-text">Settings</span>
+                </a>              
+              </li> -->
             </li>
           </ul>
         </nav>
@@ -109,14 +122,116 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid green;">MENTORS</span></h2>
+              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid orange;">INTERNS</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
+                  <button type="button" class="btn mb-2 btn-warning" data-toggle="modal" data-target="#verticalModal">+Add Intern</button>
                 </div>
-                <div class="col-md-auto ml-auto text-right">                  
+                <div class="col-md-auto ml-auto text-right">
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
-                    <input class=" bg-transparent border-0 text-white" placeholder="Search..." type="text" name="" id="">
+                    <input class=" bg-transparent border-0 " placeholder="Search..." type="text" name="" id="">
                   </form>
+                 
+                </div>
+              </div>
+              <!-- Slide Modal -->
+              <div class="modal fade modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="defaultModalLabel">Filters</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fe fe-x fe-12"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="p-2">
+                        <div class="form-group my-4">
+                          <p class="mb-2"><strong>Regions</strong></p>
+                          <label for="multi-select2" class="sr-only"></label>
+                          <select class="form-control select2-multi" id="multi-select2">
+                            <optgroup label="Mountain Time Zone">
+                              <option value="AZ">Arizona</option>
+                              <option value="CO">Colorado</option>
+                              <option value="ID">Idaho</option>
+                              <option value="MT">Montana</option>
+                              <option value="NE">Nebraska</option>
+                              <option value="NM">New Mexico</option>
+                              <option value="ND">North Dakota</option>
+                              <option value="UT">Utah</option>
+                              <option value="WY">Wyoming</option>
+                            </optgroup>
+                            <optgroup label="Central Time Zone">
+                              <option value="AL">Alabama</option>
+                              <option value="AR">Arkansas</option>
+                              <option value="IL">Illinois</option>
+                              <option value="IA">Iowa</option>
+                              <option value="KS">Kansas</option>
+                              <option value="KY">Kentucky</option>
+                              <option value="LA">Louisiana</option>
+                              <option value="MN">Minnesota</option>
+                              <option value="MS">Mississippi</option>
+                              <option value="MO">Missouri</option>
+                              <option value="OK">Oklahoma</option>
+                              <option value="SD">South Dakota</option>
+                              <option value="TX">Texas</option>
+                              <option value="TN">Tennessee</option>
+                              <option value="WI">Wisconsin</option>
+                            </optgroup>
+                          </select>
+                        </div> <!-- form-group -->
+                        <div class="form-group my-4">
+                          <p class="mb-2">
+                            <strong>Status</strong>
+                          </p>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Bagong Salta //Newest</label>
+                          </div>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2">Karaang Choi //Oldest</label>
+                          </div>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3">Active</label>
+                          </div>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck4">
+                            <label class="custom-control-label" for="customCheck4">Karaang Choi //Oldest</label>
+                          </div>
+                        </div> <!-- form-group -->
+                        <!-- <div class="form-group my-4">
+                          <p class="mb-2">
+                            <strong>Types of Customer</strong>
+                          </p>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio1">Interns</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" checked>
+                            <label class="custom-control-label" for="customRadio2">Service Providers</label>
+                          </div>
+                        </div> -->
+                        <!-- form-group -->
+                        <!-- <div class="form-group my-4">
+                          <p class="mb-2">
+                            <strong>Completed</strong>
+                          </p>
+                          <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Include</label>
+                          </div>
+                        </div> -->
+                        <!-- form-group -->
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn mb-2 btn-primary btn-block">Apply</button>
+                      <button type="button" class="btn mb-2 btn-secondary btn-block">Reset</button>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -124,36 +239,28 @@
               <table class="table border table-hover bg-white">
                 <thead>
                   <tr role="row">
-                    <th>
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="all">
-                        <label class="custom-control-label" for="all"></label>
-                      </div>
-                    </th>
                     <th>#</th>
-                    <th>Mentor Name</th>
+                    <th>Intern Name</th>
                     <th>Age</th>
+                    <th>Birthdate</th>
+                    <th>Address</th>
                     <th>Email</th>
                     <th>Contact Number</th>
-                    <th>Department</th>                    
+                    <th>School</th>                    
                     <!-- <th>Status</th>-->
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="align-center">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input">
-                        <label class="custom-control-label"></label>
-                      </div>
-                    </td>
                     <td>1331</td>
                     <td>Reveen Noe Beltran</td>
                     <td>12</td>
+                    <td>10/20/2000</td>
+                    <td>Awihao</td>
                     <td>test@gmail.com</td>
-                    <td>(697) 486-2101</td>
-                    <td>DEPARTMENT OF HEALTH</td>                    
+                    <td>09123456789</td>
+                    <td>Vicente Cosido</td>                    
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td>
                       <div class="dropdown">
@@ -171,11 +278,100 @@
               </table>
               <!-- end table -->
 
-              
             </div>
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
 
+        <!-- start modal add -->
+        <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Birthdate</label>
+                    <input type="date" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Address</label>
+                    <input type="address" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">School</label>
+                        <select class="form-control" id="example-select">
+                          <option>School1</option>
+                          <option>School2</option>
+                          <option>School3</option>
+                          <option>School4</option>
+                          <option>School5</option>
+                        </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+              
+          </div>
+          
+        </div>
+        <!-- end modal add -->
+
+        <!-- start notifications -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -243,64 +439,9 @@
             </div>
           </div>
         </div>
-
-        <div class="modal fade modal-shortcut modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="defaultModalLabel">Shortcuts</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body px-5">
-                <div class="row align-items-center">
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-success justify-content-center">
-                      <i class="fe fe-cpu fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Control area</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-primary justify-content-center">
-                      <i class="fe fe-activity fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Activity</p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-primary justify-content-center">
-                      <i class="fe fe-droplet fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Droplet</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-primary justify-content-center">
-                      <i class="fe fe-upload-cloud fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Upload</p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-primary justify-content-center">
-                      <i class="fe fe-users fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Users</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <div class="squircle bg-primary justify-content-center">
-                      <i class="fe fe-settings fe-32 align-self-center text-white"></i>
-                    </div>
-                    <p>Settings</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- end notifications -->
       </main> <!-- main -->
+
     </div> <!-- .wrapper -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -535,5 +676,10 @@
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
     </script>
+    <style>
+      .modal-input label{
+        font-size: 15px;
+      }
+    </style>
   </body>
 </html>
