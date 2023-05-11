@@ -10,6 +10,14 @@ function connect(){
     return $conn;
 }
 
+function login($tablename,$username,$password){
+    global $conn;
+    connect();
+    $query = mysqli_query($conn,"SELECT * FROM `$tablename` WHERE `username` = '$username' AND `password` = '$password'");
+    disconnect();
+    return $query;
+}
+
 function getAll($tablename){
     global $conn;
     connect();
