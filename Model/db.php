@@ -5,7 +5,7 @@ $conn;
 
 function connect(){
     global $conn;
-    $conn = mysqli_connect("localhost","root","","hackathon");
+    $conn = mysqli_connect("localhost","root","123456789","hackathon_beehive");
 
     return $conn;
 }

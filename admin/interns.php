@@ -105,6 +105,7 @@
               <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid orange;">INTERNS</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
+                  <button type="button" class="btn mb-2 btn-warning" data-toggle="modal" data-target="#verticalModal">+Add Intern</button>
                 </div>
                 <div class="col-md-auto ml-auto text-right">
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
@@ -113,117 +114,11 @@
                  
                 </div>
               </div>
-              <!-- Slide Modal -->
-              <div class="modal fade modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="defaultModalLabel">Filters</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="fe fe-x fe-12"></i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="p-2">
-                        <div class="form-group my-4">
-                          <p class="mb-2"><strong>Regions</strong></p>
-                          <label for="multi-select2" class="sr-only"></label>
-                          <select class="form-control select2-multi" id="multi-select2">
-                            <optgroup label="Mountain Time Zone">
-                              <option value="AZ">Arizona</option>
-                              <option value="CO">Colorado</option>
-                              <option value="ID">Idaho</option>
-                              <option value="MT">Montana</option>
-                              <option value="NE">Nebraska</option>
-                              <option value="NM">New Mexico</option>
-                              <option value="ND">North Dakota</option>
-                              <option value="UT">Utah</option>
-                              <option value="WY">Wyoming</option>
-                            </optgroup>
-                            <optgroup label="Central Time Zone">
-                              <option value="AL">Alabama</option>
-                              <option value="AR">Arkansas</option>
-                              <option value="IL">Illinois</option>
-                              <option value="IA">Iowa</option>
-                              <option value="KS">Kansas</option>
-                              <option value="KY">Kentucky</option>
-                              <option value="LA">Louisiana</option>
-                              <option value="MN">Minnesota</option>
-                              <option value="MS">Mississippi</option>
-                              <option value="MO">Missouri</option>
-                              <option value="OK">Oklahoma</option>
-                              <option value="SD">South Dakota</option>
-                              <option value="TX">Texas</option>
-                              <option value="TN">Tennessee</option>
-                              <option value="WI">Wisconsin</option>
-                            </optgroup>
-                          </select>
-                        </div> <!-- form-group -->
-                        <div class="form-group my-4">
-                          <p class="mb-2">
-                            <strong>Status</strong>
-                          </p>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Bagong Salta //Newest</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                            <label class="custom-control-label" for="customCheck2">Karaang Choi //Oldest</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                            <label class="custom-control-label" for="customCheck3">Active</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck4">
-                            <label class="custom-control-label" for="customCheck4">Karaang Choi //Oldest</label>
-                          </div>
-                        </div> <!-- form-group -->
-                        <!-- <div class="form-group my-4">
-                          <p class="mb-2">
-                            <strong>Types of Customer</strong>
-                          </p>
-                          <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio1">Interns</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" checked>
-                            <label class="custom-control-label" for="customRadio2">Service Providers</label>
-                          </div>
-                        </div> -->
-                        <!-- form-group -->
-                        <!-- <div class="form-group my-4">
-                          <p class="mb-2">
-                            <strong>Completed</strong>
-                          </p>
-                          <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1">Include</label>
-                          </div>
-                        </div> -->
-                        <!-- form-group -->
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn mb-2 btn-primary btn-block">Apply</button>
-                      <button type="button" class="btn mb-2 btn-secondary btn-block">Reset</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <!-- start table -->
               <table class="table border table-hover bg-white">
                 <thead>
                   <tr role="row">
-                    <th>
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="all">
-                        <label class="custom-control-label" for="all"></label>
-                      </div>
-                    </th>
                     <th>#</th>
                     <th>Intern Name</th>
                     <th>Age</th>
@@ -242,12 +137,6 @@
                     while($intern = mysqli_fetch_assoc($interns)){
                   ?>
                   <tr>
-                    <td class="align-center">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input">
-                        <label class="custom-control-label"></label>
-                      </div>
-                    </td>
                     <td><?php echo $intern['intern_id']?></td>
                     <td><?php echo $intern['firstname'] . " " . $intern['lastname']?></td>
                     <td><?php echo $intern['age']?></td>
@@ -263,7 +152,7 @@
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="#">Update</a>
+                          <a class="dropdown-item btn mb-2 btn-warning" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
                           <a class="dropdown-item" href="#">Delete</a>
                         </div>
                       </div>
@@ -277,6 +166,184 @@
             </div>
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
+
+        <!-- start modal add -->
+        <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Birthdate</label>
+                    <input type="date" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Address</label>
+                    <input type="address" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">School</label>
+                        <select class="form-control" id="example-select">
+                          <option>School1</option>
+                          <option>School2</option>
+                          <option>School3</option>
+                          <option>School4</option>
+                          <option>School5</option>
+                        </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+              
+          </div>
+          
+        </div>
+        <!-- end modal add -->
+
+        <!-- start modal edit -->
+        <div class="modal fade modal-input" id="verticalModalEdit" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Edit Intern</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Birthdate</label>
+                    <input type="date" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Address</label>
+                    <input type="address" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">School</label>
+                        <select class="form-control" id="example-select">
+                          <option>School1</option>
+                          <option>School2</option>
+                          <option>School3</option>
+                          <option>School4</option>
+                          <option>School5</option>
+                        </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+              
+          </div>
+          
+        </div>
+        <!-- end modal edit -->
 
         <!-- start notifications -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">

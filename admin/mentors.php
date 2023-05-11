@@ -92,6 +92,7 @@
               <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid green;">MENTORS</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
+                  <button type="button" class="btn mb-2 btn-success" data-toggle="modal" data-target="#verticalModal">+Add Mentor</button>
                 </div>
                 <div class="col-md-auto ml-auto text-right">                  
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
@@ -104,12 +105,6 @@
               <table class="table border table-hover bg-white">
                 <thead>
                   <tr role="row">
-                    <th>
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="all">
-                        <label class="custom-control-label" for="all"></label>
-                      </div>
-                    </th>
                     <th>#</th>
                     <th>Mentor Name</th>
                     <th>Age</th>
@@ -126,12 +121,6 @@
                     while($mentor = mysqli_fetch_assoc($mentors)){
                   ?>
                   <tr>
-                    <td class="align-center">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input">
-                        <label class="custom-control-label"></label>
-                      </div>
-                    </td>
                     <td><?php echo $mentor['mentor_id'] ?></td>
                     <td><?php echo $mentor['firstname']  . " ". $mentor['lastname']?></td>
                     <td><?php echo $mentor['age'] ?></td>
@@ -145,7 +134,7 @@
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="#">Update</a>
+                          <a class="dropdown-item btn mb-2 btn-success" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
                           <a class="dropdown-item" href="#">Delete</a>
                         </div>
                       </div>
@@ -160,6 +149,158 @@
             </div>
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
+
+        <!-- start modal add -->
+        <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Add Mentor</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">Department</label>
+                    <select class="form-control" id="example-select">
+                      <option>Department1</option>
+                      <option>Department2</option>
+                      <option>Department3</option>
+                      <option>Department4</option>
+                      <option>Department5</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- end modal add -->
+
+        <!-- start modal edit -->
+        <div class="modal fade modal-input" id="verticalModalEdit" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Edit Mentor</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">Department</label>
+                    <select class="form-control" id="example-select">
+                      <option>Department1</option>
+                      <option>Department2</option>
+                      <option>Department3</option>
+                      <option>Department4</option>
+                      <option>Department5</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- end modal edit -->
 
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
