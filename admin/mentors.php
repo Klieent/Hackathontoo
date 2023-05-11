@@ -42,64 +42,7 @@
         </ul>
       </nav>
 
-      <!-- start sidebar -->
-      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
-        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
-          <i class="fe fe-x"><span class="sr-only"></span></i>
-        </a>
-        <nav class="vertnav navbar navbar-light">
-          <!-- nav bar -->
-          <div class="w-100 mb-1 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard-analytics.php">
-              <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
-              <br>
-              <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u>DEPARTMENT</u></span>
-              </p>
-            </a>
-          </div>
-          
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="dashboard-analytics.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">Dashboard</span>
-              </a>              
-            </li>
-          </ul>         
-          
-          <ul class="navbar-nav flex-fill w-100 mb-2">            
-            <li class="nav-item dropdown">
-              <a href="#accounts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-16 fe-users"></i>
-                <span class="ml-3 item-text">Account Management</span>
-              </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="accounts">
-                <a class="nav-link pl-3" href="./mentors.php"><span class="ml-1">Mentors</span></a>
-                <a class="nav-link pl-3" href="./interns.php"><span class="ml-1">Interns</span></a>
-                
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="department.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">Department Management</span>
-              </a>              
-            </li>
-          </ul> 
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="school.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">School Management</span>
-              </a>              
-            </li>
-          </ul> 
-        </nav>
-      </aside>
-      <!-- end sidebar -->
+    <?php include 'Includes/sidebar.inc.php'?>
 
       <main role="main" class="main-content">
         <div class="container-fluid">
@@ -123,7 +66,7 @@
                   <tr role="row">
                     <th>#</th>
                     <th>Mentor Name</th>
-                    <th>Age</th>
+                   
                     <th>Email</th>
                     <th>Contact Number</th>
                     <th>Department</th>                    
@@ -135,14 +78,16 @@
                    <?php 
                     $mentors = getAll('mentor');
                     while($mentor = mysqli_fetch_assoc($mentors)){
+
+                      $department = mysqli_fetch_assoc(getRecord('department','department_id',$mentor['department_id']));
                   ?>
                   <tr>
                     <td><?php echo $mentor['mentor_id'] ?></td>
                     <td><?php echo $mentor['firstname']  . " ". $mentor['lastname']?></td>
-                    <td><?php echo $mentor['age'] ?></td>
+                    
                     <td><?php echo $mentor['email'] ?></td>
                     <td><?php echo $mentor['contact_number'] ?></td>
-                    <td><?php echo $mentor['department'] ?></td>                    
+                    <td><?php echo $department['name'] ?></td>                    
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td>
                       <div class="dropdown">
@@ -150,12 +95,112 @@
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item btn mb-2 btn-success" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
-                          <a class="dropdown-item" href="#">Delete</a>
+                          <a class="dropdown-item btn mb-2 btn-success" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit<?php echo $mentor['mentor_id']?>">Edit</a>
+                          <a class="dropdown-item" href="#" type="button" data-toggle="modal" data-target="#delete<?php echo $mentor['mentor_id']?>">Delete</a>
                         </div>
                       </div>
                     </td>
                   </tr>
+                    <!-- start modal edit -->
+                  <div class="modal fade modal-input" id="verticalModalEdit<?php echo $mentor['mentor_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                      <form method="POST" action="../Controller/MentorController.php?mentor_id=<?php echo $mentor['mentor_id']?>">
+                      <div class="modal-content ">
+                        <div class="modal-header">
+                          <h1 class="modal-title" id="verticalModalTitle">Edit Mentor</h1>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col">
+                              <label for="simpleinput">First Name</label>
+                              <input type="text" id="simpleinput" class="form-control" name="firstname" value="<?php echo $mentor['firstname']?>">
+                            </div>
+                            <div class="col">
+                              <label for="simpleinput">Middle Name</label>
+                              <input type="text" id="simpleinput" class="form-control" name="middlename" value="<?php echo $mentor['middlename']?>">
+                            </div>
+                            <div class="col">
+                              <label for="simpleinput">Last Name</label>
+                              <input type="text" id="simpleinput" class="form-control" name="lastname" value="<?php echo $mentor['lastname']?>">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <label for="simpleinput">Email</label>
+                              <input type="email" id="simpleinput" class="form-control" name="email" value="<?php echo $mentor['email']?>">
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col">
+                              <label for="simpleinput">Contact Number</label>
+                              <input type="number" id="simpleinput" class="form-control" name="contact_number" value="<?php echo $mentor['contact_number']?>">
+                            </div>
+                            <div class="col">
+                              <label for="example-select">Department</label>
+                              <select class="form-control" id="example-select" name="department_id">
+                                <?php 
+                                  $departments = getAll("department");
+                                  while($department = mysqli_fetch_assoc($departments)){
+                                ?>
+                                <option value="<?php echo $department['department_id']?>" <?php if($department['department_id'] == $mentor['department_id']){?> selected <?php }?>><?php echo $department['name']?></option>
+                                
+                                <?php }?>
+                              
+                              </select>
+                            </div>
+                          </div>
+                          <br>
+                         
+                          <br>
+                        </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn mb-2 btn-primary" name="editMentor">Edit</button>
+                          </div>
+                        </div>
+                        </form>
+                    </div>
+                  </div>
+                  <!-- end modal edit -->
+
+
+                      <div class="modal fade modal-input" id="delete<?php echo $mentor['mentor_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                      <form action="../Controller/MentorController.php?mentor_id=<?php echo $mentor['mentor_id']?>" method="POST">
+                      <div class="modal-content ">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="verticalModalTitle">Delete Intern</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <p>
+                           This action cannot be undone.
+                          </p>
+                        </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn mb-2 btn-primary" name="deleteMentor">Delete</button>
+                          </div>
+                        </div>
+                        </form>
+                        
+                    
+                    </div>
+                    
+                  </div>
+
+
+
                   <?php }?>
                 </tbody>
               </table>
@@ -169,6 +214,7 @@
         <!-- start modal add -->
         <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
+            <form action="../Controller/MentorController.php" method="POST">
             <div class="modal-content ">
               <div class="modal-header">
                 <h1 class="modal-title" id="verticalModalTitle">Add Mentor</h1>
@@ -181,42 +227,41 @@
                 <div class="row">
                   <div class="col">
                     <label for="simpleinput">First Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="firstname">
                   </div>
                   <div class="col">
                     <label for="simpleinput">Middle Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="middlename">
                   </div>
                   <div class="col">
                     <label for="simpleinput">Last Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="lastname">
                   </div>
                 </div>
                 <br>
                 <div class="row">
                   <div class="col">
-                    <label for="simpleinput">Age</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
                     <label for="simpleinput">Email</label>
-                    <input type="email" id="simpleinput" class="form-control">
+                    <input type="email" id="simpleinput" class="form-control" name="email">
                   </div>
                 </div>
                 <br>
                 <div class="row">
                   <div class="col">
                     <label for="simpleinput">Contact Number</label>
-                    <input type="number" id="simpleinput" class="form-control">
+                    <input type="number" id="simpleinput" class="form-control" name="contact_number">
                   </div>
                   <div class="col">
                     <label for="example-select">Department</label>
-                    <select class="form-control" id="example-select">
-                      <option>Department1</option>
-                      <option>Department2</option>
-                      <option>Department3</option>
-                      <option>Department4</option>
-                      <option>Department5</option>
+                    <select class="form-control" id="example-select" name="department_id">
+                      <?php 
+                        $departments = getAll("department");
+                        while($department = mysqli_fetch_assoc($departments)){
+                      ?>
+                      <option value="<?php echo $department['department_id']?>"><?php echo $department['name']?></option>
+                      
+                      <?php }?>
+                     
                     </select>
                   </div>
                 </div>
@@ -224,99 +269,26 @@
                 <div class="row">
                   <div class="col">
                     <label for="simpleinput">Username</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="username">
                   </div>
                   <div class="col">
                     <label for="simpleinput">Password</label>
-                    <input type="password" id="simpleinput" class="form-control">
+                    <input type="password" id="simpleinput" class="form-control" name="password">
                   </div>
                 </div>
                 <br>
               </div>
                 <div class="modal-footer">
                   <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                  <button type="submit" class="btn mb-2 btn-primary" name="addMentor">Add</button>
                 </div>
               </div>
+              </form>
           </div>
         </div>
         <!-- end modal add -->
 
-        <!-- start modal edit -->
-        <div class="modal fade modal-input" id="verticalModalEdit" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content ">
-              <div class="modal-header">
-                <h1 class="modal-title" id="verticalModalTitle">Edit Mentor</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">First Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Middle Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Last Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Age</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Email</label>
-                    <input type="email" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Contact Number</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="example-select">Department</label>
-                    <select class="form-control" id="example-select">
-                      <option>Department1</option>
-                      <option>Department2</option>
-                      <option>Department3</option>
-                      <option>Department4</option>
-                      <option>Department5</option>
-                    </select>
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Username</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Password</label>
-                    <input type="password" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-              </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
-                </div>
-              </div>
-          </div>
-        </div>
-        <!-- end modal edit -->
+      
 
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">

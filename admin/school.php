@@ -1,30 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
-    <title>School</title>
-
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
-    <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+     <?php include('includes/head.inc.php');
+        include '../Model/db.php';
+     
+      ?>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -63,73 +43,16 @@
         </ul>
       </nav>
 
-      <!-- start sidebar -->
-      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
-        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
-          <i class="fe fe-x"><span class="sr-only"></span></i>
-        </a>
-        <nav class="vertnav navbar navbar-light">
-          <!-- nav bar -->
-          <div class="w-100 mb-1 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard-analytics.php">
-              <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
-              <br>
-              <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u>SCHOOL</u></span>
-              </p>
-            </a>
-          </div>
-          
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="dashboard-analytics.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">Dashboard</span>
-              </a>              
-            </li>
-          </ul>         
-          
-          <ul class="navbar-nav flex-fill w-100 mb-2">            
-            <li class="nav-item dropdown">
-              <a href="#accounts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                <i class="fe fe-16 fe-users"></i>
-                <span class="ml-3 item-text">Account Management</span>
-              </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="accounts">
-                <a class="nav-link pl-3" href="./mentors.php"><span class="ml-1">Mentors</span></a>
-                <a class="nav-link pl-3" href="./interns.php"><span class="ml-1">Interns</span></a>
-                
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="department.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">Department</span>
-              </a>              
-            </li>
-          </ul> 
-          <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="school.php" aria-expanded="false" class=" nav-link">
-                <i class="fe fe-home fe-16"></i>
-                <span class="ml-3 item-text">School</span>
-              </a>              
-            </li>
-          </ul> 
-        </nav>
-      </aside>
-      <!-- end sidebar -->
+    <?php include 'Includes/sidebar.inc.php'?>
 
       <main role="main" class="main-content">
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid gray;">SCHOOL</span></h2>
+              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid blue;">SCHOOL</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
-                  <button type="button" class="btn mb-2 btn-secondary" data-toggle="modal" data-target="#verticalModal">+Add School</button>
+                  <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#verticalModal">+Add School</button>
                 </div>
                 <div class="col-md-auto ml-auto text-right">
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
@@ -138,96 +61,27 @@
                  
                 </div>
               </div>
-              <!-- Slide Modal -->
-              <div class="modal fade modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="defaultModalLabel">Filters</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="fe fe-x fe-12"></i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="p-2">
-                        <div class="form-group my-4">
-                          <p class="mb-2"><strong>Regions</strong></p>
-                          <label for="multi-select2" class="sr-only"></label>
-                          <select class="form-control select2-multi" id="multi-select2">
-                            <optgroup label="Mountain Time Zone">
-                              <option value="AZ">Arizona</option>
-                              <option value="CO">Colorado</option>
-                              <option value="ID">Idaho</option>
-                              <option value="MT">Montana</option>
-                              <option value="NE">Nebraska</option>
-                              <option value="NM">New Mexico</option>
-                              <option value="ND">North Dakota</option>
-                              <option value="UT">Utah</option>
-                              <option value="WY">Wyoming</option>
-                            </optgroup>
-                            <optgroup label="Central Time Zone">
-                              <option value="AL">Alabama</option>
-                              <option value="AR">Arkansas</option>
-                              <option value="IL">Illinois</option>
-                              <option value="IA">Iowa</option>
-                              <option value="KS">Kansas</option>
-                              <option value="KY">Kentucky</option>
-                              <option value="LA">Louisiana</option>
-                              <option value="MN">Minnesota</option>
-                              <option value="MS">Mississippi</option>
-                              <option value="MO">Missouri</option>
-                              <option value="OK">Oklahoma</option>
-                              <option value="SD">South Dakota</option>
-                              <option value="TX">Texas</option>
-                              <option value="TN">Tennessee</option>
-                              <option value="WI">Wisconsin</option>
-                            </optgroup>
-                          </select>
-                        </div> <!-- form-group -->
-                        <div class="form-group my-4">
-                          <p class="mb-2">
-                            <strong>Status</strong>
-                          </p>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Bagong Salta //Newest</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                            <label class="custom-control-label" for="customCheck2">Karaang Choi //Oldest</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                            <label class="custom-control-label" for="customCheck3">Active</label>
-                          </div>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck4">
-                            <label class="custom-control-label" for="customCheck4">Karaang Choi //Oldest</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn mb-2 btn-primary btn-block">Apply</button>
-                      <button type="button" class="btn mb-2 btn-secondary btn-block">Reset</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <!-- start table -->
               <table class="table border table-hover bg-white">
                 <thead>
+
+                 
                   <tr role="row">
                     <th><span class="pl-5">#</span></th>
                     <th><center>School Name</center></th>
-                    <th><span class="float-right pr-5">Action</span></th>
+                    <th class=""><span class="float-right pr-5">Action</span></th>
                   </tr>
+                 
                 </thead>
                 <tbody>
+                   <?php 
+                    $schools = getAll('school');
+                    while($school = mysqli_fetch_assoc($schools)){
+                  ?>
                   <tr>
-                    <td><span class="pl-5">1331</span></td>
-                    <td><center>Reveen Noe Beltran</center></td>            
+                    <td><span class="pl-5"><?php echo $school['school_id']?></span></td>
+                    <td><center><?php echo $school['name']?></center></td>              
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td><span class="float-right pr-5">
                       <div class="dropdown">
@@ -235,12 +89,76 @@
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item btn mb-2 btn-primary" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
-                          <a class="dropdown-item" href="#">Delete</a>
+                          <a class="dropdown-item btn mb-2 btn-primary" href="#" type="button" data-toggle="modal" data-target="#edit<?php echo $school['school_id']?>">Edit</a>
+                          <a class="dropdown-item" href="#" type="button" data-toggle="modal" data-target="#delete<?php echo $school['school_id']?>">Delete</a>
                         </div>
-                    </span></div>
+                      </div>
+                      </span>
                     </td>
                   </tr>
+                  <?php 
+                  $school = mysqli_fetch_assoc(getRecord('school','school_id',$school['school_id']));
+                   ?>
+                    <div class="modal fade modal-input" id="edit<?php echo $school['school_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-xl" role="document">
+                        <form action="../Controller/SchoolController.php?school_id=<?php echo $school['school_id']?>" method="POST">
+                        <div class="modal-content ">
+                          <div class="modal-header">
+                            <h1 class="modal-title" id="verticalModalTitle">Edit School</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+
+                          <div class="modal-body">
+                            <div class="row p-3">
+                                <label for="simpleinput">School Name</label>
+                                <input type="text" id="simpleinput" class="form-control" name="name" value="<?php echo $school['name']?>">
+                            </div>
+                            <br>
+                          </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn mb-2 btn-primary" name="editSchool">Edit</button>
+                            </div>
+                          </div>
+                          </form>
+                      </div>
+                      
+                  </div>
+
+                    <div class="modal fade modal-input" id="delete<?php echo $school['school_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                      <form action="../Controller/SchoolController.php?school_id=<?php echo $school['school_id']?>" method="POST">
+                      <div class="modal-content ">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="verticalModalTitle">Delete School</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <p>
+                           This action cannot be undone.
+                          </p>
+                        </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn mb-2 btn-primary" name="deleteSchool">Delete</button>
+                          </div>
+                        </div>
+                        </form>
+                        
+                    
+                    </div>
+                    
+                  </div>
+
+
+
+                   <?php }?>
                 </tbody>
               </table>
               <!-- end table -->
@@ -251,7 +169,8 @@
 
         <!-- start modal add -->
         <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-dialog modal-xl" role="document">'
+            <form action = "../Controller/SchoolController.php" method="POST">
             <div class="modal-content ">
               <div class="modal-header">
                 <h1 class="modal-title" id="verticalModalTitle">Add School</h1>
@@ -259,52 +178,27 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+
               <div class="modal-body">
                 <div class="row p-3">
                     <label for="simpleinput">School Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="name">
                 </div>
-                
                 <br>
               </div>
                 <div class="modal-footer">
                   <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                  <button type="submit" class="btn mb-2 btn-primary" name="addSchool">Add</button>
                 </div>
               </div>
-              
+              </form>
           </div>
           
         </div>
         <!-- end modal add -->
 
         <!-- start modal edit -->
-        <div class="modal fade modal-input" id="verticalModalEdit" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content ">
-              <div class="modal-header">
-                <h1 class="modal-title" id="verticalModalTitle">Edit School</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="row p-3">
-                    <label for="simpleinput">School Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                </div>
-                
-                <br>
-              </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
-                </div>
-              </div>
-              
-          </div>
-          
-        </div>
+      
         <!-- end modal edit -->
 
         <!-- start notifications -->

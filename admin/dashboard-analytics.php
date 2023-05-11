@@ -102,6 +102,7 @@
         </nav>
       </aside>
       <!-- end sidebar -->
+   <?php include 'Includes/sidebar.inc.php'?>
 
       <!-- start body -->
       <div class="tab-content container-fluid">
