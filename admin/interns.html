@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./assets/">
+    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
     <title>Interns</title>
 
     <!-- Simple bar CSS -->
@@ -125,6 +125,7 @@
               <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid orange;">INTERNS</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
+                  <button type="button" class="btn mb-2 btn-warning" data-toggle="modal" data-target="#verticalModal">+Add Intern</button>
                 </div>
                 <div class="col-md-auto ml-auto text-right">
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
@@ -281,6 +282,95 @@
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
 
+        <!-- start modal add -->
+        <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">First Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Middle Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Last Name</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Age</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Birthdate</label>
+                    <input type="date" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Address</label>
+                    <input type="address" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Contact Number</label>
+                    <input type="number" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Email</label>
+                    <input type="email" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="example-select">School</label>
+                        <select class="form-control" id="example-select">
+                          <option>School1</option>
+                          <option>School2</option>
+                          <option>School3</option>
+                          <option>School4</option>
+                          <option>School5</option>
+                        </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <label for="simpleinput">Username</label>
+                    <input type="text" id="simpleinput" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="simpleinput">Password</label>
+                    <input type="password" id="simpleinput" class="form-control">
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                </div>
+              </div>
+              
+          </div>
+          
+        </div>
+        <!-- end modal add -->
+
         <!-- start notifications -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
@@ -351,6 +441,7 @@
         </div>
         <!-- end notifications -->
       </main> <!-- main -->
+
     </div> <!-- .wrapper -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -585,5 +676,10 @@
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
     </script>
+    <style>
+      .modal-input label{
+        font-size: 15px;
+      }
+    </style>
   </body>
 </html>
