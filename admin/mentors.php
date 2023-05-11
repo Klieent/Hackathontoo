@@ -1,29 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
-    <title>Service Providers</title>
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
-    <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+    <?php include('includes/head.inc.php');
+        include "../Model/db.php";
+      ?>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -141,6 +121,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                   <?php 
+                    $mentors = getAll('mentor');
+                    while($mentor = mysqli_fetch_assoc($mentors)){
+                  ?>
                   <tr>
                     <td class="align-center">
                       <div class="custom-control custom-checkbox">
@@ -148,12 +132,12 @@
                         <label class="custom-control-label"></label>
                       </div>
                     </td>
-                    <td>1331</td>
-                    <td>Reveen Noe Beltran</td>
-                    <td>12</td>
-                    <td>test@gmail.com</td>
-                    <td>(697) 486-2101</td>
-                    <td>DEPARTMENT OF HEALTH</td>                    
+                    <td><?php echo $mentor['mentor_id'] ?></td>
+                    <td><?php echo $mentor['firstname']  . " ". $mentor['lastname']?></td>
+                    <td><?php echo $mentor['age'] ?></td>
+                    <td><?php echo $mentor['email'] ?></td>
+                    <td><?php echo $mentor['contact_number'] ?></td>
+                    <td><?php echo $mentor['department'] ?></td>                    
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td>
                       <div class="dropdown">
@@ -167,6 +151,7 @@
                       </div>
                     </td>
                   </tr>
+                  <?php }?>
                 </tbody>
               </table>
               <!-- end table -->
