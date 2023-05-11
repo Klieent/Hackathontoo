@@ -1,14 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php 
-    session_start();
-    
-    include 'includes/head.inc.php';
-    include '../Model/db.php';
-
-        $mentor = mysqli_fetch_assoc(getRecord('mentor','mentor_id',$_SESSION["mentor_id"]));
-    ?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
+    <title>Activity</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="css/simplebar.css">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="css/feather.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -61,7 +70,7 @@
               <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
               <br>
               <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u><?php echo $mentor['firstname'] . " ". $mentor['lastname']?></u></span>
+                <span><u>{mentor name}</u></span>
               </p>
             </a>
           </div>
@@ -84,13 +93,13 @@
               <div class="my-4">
                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link  h4" href="dashboard.php" >Lessons</a>
+                  <a class="nav-link  h4" href="index.php" >Lessons</a>
                 </li>
-                  <li class="nav-item">
-                  <a class="nav-link h4 active" id="profile-tab" href="classwork.php">Activity</a>
+                <li class="nav-item">
+                <a class="nav-link h4" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link h4" id="contact-tab" href="interns.php">Interns</a>
+                    <a class="nav-link h4 active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Interns</a>
                   </li>
                 </ul>
 
@@ -98,36 +107,31 @@
                 <div class="tab-content" id="myTabContent">
                   <!-- start lesson -->
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div>
-                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#verticalModal">Add Activity</button>
-                    </div>
                     <br>
                     <!-- start main bodyyyy -->
-
-
-                  <?php $questions = getRecord('questionnaire','mentor_id',$_SESSION['mentor_id']);
-                  while($que = mysqli_fetch_assoc($questions)){
-                   ?>
-                    <div class="main-body">
-                      <div class="card shadow ">
-                        <div class="card-body">
-                          <h3 class="mb-0 mt-3"><u><?php echo $que['title']?></u></h3>
-                          <br>
-                          <p>
-                          <?php echo $que['content']?>
-                          </p>
-
-                            <a href="<?php echo $que['file']?>" download>Download <?php echo substr($que['file'],9)?></a>
-
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
                         </div>
-
-                      </div>
-                     
                     </div>
-                  </div><!-- start main bodyyyy -->
-                  <?php }?>
-                  
-                  <!-- start lesson -->
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- start main bodyyyy -->
 
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <h5 class="mb-0 mt-5">Activity</h5>
@@ -150,10 +154,8 @@
                 <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
                   <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content ">
-
-                      <form action="../Controller/Question.php" method="POST" enctype="multipart/form-data">
                       <div class="modal-header">
-                        <h1 class="modal-title" id="verticalModalTitle">Add Activity</h1>
+                        <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -162,25 +164,25 @@
                       <div class="modal-body">
                         <div class="row p-3">
                           <label for="" class="h4">Activity name</label>
-                          <input type="text" id="simpleinput" class="form-control" name="title">
+                          <input type="text" id="simpleinput" class="form-control">
                         </div>
                         <div class="row p-3">
                           <label for="" class="h4">Activity Content</label>
-                          <textarea type="text" id="" name="content" cols="30" rows="10" class="form-control" style="resize:none;"></textarea>
+                          <textarea type="text" id="" name="" cols="30" rows="10" class="form-control" style="resize:none;"></textarea>
                         </div>
                         <div class=" p-3">
                           <label for="" class="h4">Attach File</label>
                           <br>
                           <div>
-                            <input type="file" class="form-control" name="file">
+                            <input type="file" class="form-control">
                           </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn mb-2 btn-primary" name="add">Add</button>
+                          <button type="button" class="btn mb-2 btn-primary">Add</button>
                         </div>
                       </div>
-                      </form>
+                      
                   </div>
                   
                 </div>
