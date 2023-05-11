@@ -10,11 +10,11 @@ if(isset($_POST['addMentor'])){
     $middlename= $_POST['middlename'];
     $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
-    $department = $_POST['department'];
+    $department = $_POST['department_id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $fields = array('firstname','lastname','middlename','contact_number','email','department','username','password');
+    $fields = array('firstname','lastname','middlename','contact_number','email','department_id','username','password');
     $values = array($firstname,$lastname,$middlename,$contact_number,$email,$department,$username,$password);
     insertRecord('mentor',$fields,$values);
     header("Location: ../admin/mentors.php");
@@ -28,10 +28,10 @@ if(isset($_POST['editMentor'])){
     $middlename= $_POST['middlename'];
     $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
-    $department = $_POST['department'];
+    $department = $_POST['department_id'];
    
 
-    $fields = array('mentor_id','firstname','lastname','middlename','contact_number','email','department');
+    $fields = array('mentor_id','firstname','lastname','middlename','contact_number','email','department_id');
     $values = array($mentor_id,$firstname,$lastname,$middlename,$contact_number,$email,$department);
     editRecord('mentor',$fields,$values);
     header("Location: ../admin/mentors.php");
