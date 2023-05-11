@@ -6,7 +6,7 @@
   <body class="light ">
     <div class="wrapper vh-100">
       <div class="row align-items-center h-100">
-        <form method="POST"  action="../Controller/admin.php" class="col-lg-3 col-md-4 col-10 mx-auto text-center">
+        <form method="POST"  action="../Controller/AdminController.php" class="col-lg-3 col-md-4 col-10 mx-auto text-center">
           <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.php">
             <svg version="1.1" id="logo" class="navbar-brand-img brand-md" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
               <g>

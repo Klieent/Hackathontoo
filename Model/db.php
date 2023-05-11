@@ -5,7 +5,7 @@ $conn;
 
 function connect(){
     global $conn;
-    $conn = mysqli_connect("localhost","root","123456789","hackathon_beehive");
+    $conn = mysqli_connect("localhost","root","","hackathon");
 
     return $conn;
 }
@@ -54,7 +54,7 @@ function editRecord($tablename,$fields,$values){
     disconnect();
 }
 
-function deleteRecord($tablename,$fields,$values){
+function deleteRecord($tablename,$fld,$val){
     global $conn;
     connect();
     $query = mysqli_query($conn,"DELETE FROM `$tablename` WHERE `$fld` = $val");
