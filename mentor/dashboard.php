@@ -117,7 +117,7 @@
                           <p>
                           <?php echo $lesson['content']?>
                           </p>
-                          <a href="<?php echo $lesson['file']?>" download>download</a>
+                          <a href="<?php echo $lesson['file']?>" download>Download <?php echo substr($lesson['file'],9)?></a>
                         </div>
                     </div>
                   </div><!-- start main bodyyyy -->
