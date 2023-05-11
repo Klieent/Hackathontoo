@@ -96,7 +96,7 @@
                   <a class="nav-link active h4" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lessons</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link h4" id="profile-tab" href="classwork.php">Classwork</a>
+                    <a class="nav-link h4" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link h4" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Interns</a>
@@ -149,7 +149,7 @@
                   <!-- start lesson -->
 
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <h5 class="mb-0 mt-5">Classwork</h5>
+                  <h5 class="mb-0 mt-5">Activity</h5>
                   <p>Buhaton skwe skwe.</p>
                   <br>
                   <div>
@@ -184,6 +184,13 @@
                         <div class="row p-3">
                           <label for="" class="h4">Lesson Content</label>
                           <textarea type="text" id="" name="" cols="30" rows="10" class="form-control" style="resize:none;"></textarea>
+                        </div>
+                        <div class=" p-3">
+                          <label for="" class="h4">Attach File</label>
+                          <br>
+                          <div>
+                            <input type="file" class="form-control">
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
