@@ -1,10 +1,30 @@
 <!doctype html>
 <html lang="en">
   <head>
-      <?php include('includes/head.inc.php');
-        include "../Model/db.php";
-      ?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
+    <title>Department</title>
 
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="css/simplebar.css">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="css/select2.css">
+    <link rel="stylesheet" href="css/dropzone.css">
+    <link rel="stylesheet" href="css/uppy.min.css">
+    <link rel="stylesheet" href="css/jquery.steps.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/quill.snow.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -34,10 +54,10 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <!-- <a class="dropdown-item" href="profile-settings.php">Profile</a> -->
-              <a class="dropdown-item" href="profile-settings.php">Settings</a>
+              <!-- <a class="dropdown-item" href="profile-settings.html">Profile</a> -->
+              <a class="dropdown-item" href="profile-settings.html">Settings</a>
               <a class="dropdown-item" href="#">Activities</a>
-              <a class="dropdown-item" href="auth-login.php">logout</a>
+              <a class="dropdown-item" href="auth-login.html">logout</a>
             </div>
           </li>
         </ul>
@@ -106,10 +126,10 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12">
-              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid orange;">INTERNS</span></h2>
+              <h2 class="h3 mb-3 page-title"><span style="text-decoration: none; border-bottom:1px solid blue;">DEPARTMENT</span></h2>
               <div class="row mb-4 items-align-center">
                 <div class="col-md">
-                  <button type="button" class="btn mb-2 btn-warning" data-toggle="modal" data-target="#verticalModal">+Add Intern</button>
+                  <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#verticalModal">+Add Department</button>
                 </div>
                 <div class="col-md-auto ml-auto text-right">
                   <form action="" class="small bg-white border py-1 px-2 rounded mr-2 d-none d-lg-inline">
@@ -123,46 +143,28 @@
               <table class="table border table-hover bg-white">
                 <thead>
                   <tr role="row">
-                    <th>#</th>
-                    <th>Intern Name</th>
-                    <th>Age</th>
-                    <th>Birthdate</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th>Contact Number</th>
-                    <th>School</th>                    
-                    <!-- <th>Status</th>-->
-                    <th>Action</th>
+                    <th><span class="pl-5">#</span></th>
+                    <th><center>Department Name</center></th>
+                    <th class=""><span class="float-right pr-5">Action</span></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
-                    $interns = getAll('intern');
-                    while($intern = mysqli_fetch_assoc($interns)){
-                  ?>
                   <tr>
-                    <td><?php echo $intern['intern_id']?></td>
-                    <td><?php echo $intern['firstname'] . " " . $intern['lastname']?></td>
-                    <td><?php echo $intern['age']?></td>
-                    <td><?php echo date("M d Y", strtotime($intern['birthdate']))?></td>
-                    <td><?php echo $intern['address']?></td>
-                    <td><?php echo $intern['email']?></td>
-                    <td><?php echo $intern['contact_number']?></td>
-                    <td><?php echo $intern['school']?></td>                    
+                    <td><span class="pl-5">1331</span></td>
+                    <td><center>Reveen Noe Beltran</center></td>              
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
-                    <td>
+                    <td><span class="float-right pr-5">
                       <div class="dropdown">
                         <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item btn mb-2 btn-warning" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
+                          <a class="dropdown-item btn mb-2 btn-primary" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
                           <a class="dropdown-item" href="#">Delete</a>
                         </div>
                       </div>
-                    </td>
+                      </span></td>
                   </tr>
-                  <?php }?>
                 </tbody>
               </table>
               <!-- end table -->
@@ -183,69 +185,9 @@
               </div>
 
               <div class="modal-body">
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">First Name</label>
+                <div class="row p-3">
+                    <label for="simpleinput">Department Name</label>
                     <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Middle Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Last Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Age</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Birthdate</label>
-                    <input type="date" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Address</label>
-                    <input type="address" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Contact Number</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Email</label>
-                    <input type="email" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="example-select">School</label>
-                        <select class="form-control" id="example-select">
-                          <option>School1</option>
-                          <option>School2</option>
-                          <option>School3</option>
-                          <option>School4</option>
-                          <option>School5</option>
-                        </select>
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Username</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Password</label>
-                    <input type="password" id="simpleinput" class="form-control">
-                  </div>
                 </div>
                 <br>
               </div>
@@ -261,80 +203,20 @@
         <!-- end modal add -->
 
         <!-- start modal edit -->
-        <div class="modal fade modal-input" id="verticalModalEdit" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+        <div class="modal fade modal-input" id="verticalModalEdit   " tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content ">
               <div class="modal-header">
-                <h1 class="modal-title" id="verticalModalTitle">Edit Intern</h1>
+                <h1 class="modal-title" id="verticalModalTitle">Edit Department</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
 
               <div class="modal-body">
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">First Name</label>
+                <div class="row p-3">
+                    <label for="simpleinput">Department Name</label>
                     <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Middle Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Last Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Age</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Birthdate</label>
-                    <input type="date" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Address</label>
-                    <input type="address" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Contact Number</label>
-                    <input type="number" id="simpleinput" class="form-control">
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Email</label>
-                    <input type="email" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="example-select">School</label>
-                        <select class="form-control" id="example-select">
-                          <option>School1</option>
-                          <option>School2</option>
-                          <option>School3</option>
-                          <option>School4</option>
-                          <option>School5</option>
-                        </select>
-                  </div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col">
-                    <label for="simpleinput">Username</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="simpleinput">Password</label>
-                    <input type="password" id="simpleinput" class="form-control">
-                  </div>
                 </div>
                 <br>
               </div>
@@ -419,6 +301,7 @@
         </div>
         <!-- end notifications -->
       </main> <!-- main -->
+
     </div> <!-- .wrapper -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -481,7 +364,7 @@
 
       function cb(start, end)
       {
-        $('#reportrange span').php(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
       }
       $('#reportrange').daterangepicker(
       {
@@ -653,5 +536,10 @@
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
     </script>
+    <style>
+      .modal-input label{
+        font-size: 15px;
+      }
+    </style>
   </body>
 </html>
