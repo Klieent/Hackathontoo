@@ -36,7 +36,7 @@
               <!-- <a class="dropdown-item" href="profile-settings.php">Profile</a> -->
               <a class="dropdown-item" href="profile-settings.php">Settings</a>
               <a class="dropdown-item" href="#">Activities</a>
-              <a class="dropdown-item" href="auth-login.php">logout</a>
+              <a class="dropdown-item" href="logout.php">logout</a>
             </div>
           </li>
         </ul>
