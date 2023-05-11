@@ -34,10 +34,10 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <!-- <a class="dropdown-item" href="profile-settings.html">Profile</a> -->
-              <a class="dropdown-item" href="profile-settings.html">Settings</a>
+              <!-- <a class="dropdown-item" href="profile-settings.php">Profile</a> -->
+              <a class="dropdown-item" href="profile-settings.php">Settings</a>
               <a class="dropdown-item" href="#">Activities</a>
-              <a class="dropdown-item" href="auth-login.html">logout</a>
+              <a class="dropdown-item" href="auth-login.php">logout</a>
             </div>
           </li>
         </ul>
@@ -51,7 +51,7 @@
         <nav class="vertnav navbar navbar-light">
           <!-- nav bar -->
           <div class="w-100 mb-1 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard-analytics.html">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard-analytics.php">
               <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
               <br>
               <p class="text-muted nav-heading mt-4 mb-1">
@@ -62,7 +62,7 @@
           
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-              <a href="dashboard-analytics.html" aria-expanded="false" class=" nav-link">
+              <a href="dashboard-analytics.php" aria-expanded="false" class=" nav-link">
                 <i class="fe fe-home fe-16"></i>
                 <span class="ml-3 item-text">Dashboard</span>
               </a>              
@@ -76,18 +76,18 @@
                 <span class="ml-3 item-text">Account Management</span>
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="accounts">
-                <a class="nav-link pl-3" href="./mentors.html"><span class="ml-1">Mentors</span></a>
-                <a class="nav-link pl-3" href="./interns.html"><span class="ml-1">Interns</span></a>
+                <a class="nav-link pl-3" href="./mentors.php"><span class="ml-1">Mentors</span></a>
+                <a class="nav-link pl-3" href="./interns.php"><span class="ml-1">Interns</span></a>
                 
               </ul>
               <!-- <li class="nav-item dropdown">
-                <a href="./subscription.html"  aria-expanded="false" class=" nav-link">
+                <a href="./subscription.php"  aria-expanded="false" class=" nav-link">
                   <i class="fe fe-credit-card fe-16"></i>
                   <span class="ml-3 item-text">Subscription Management</span>
                 </a>              
               </li>
               <li class="nav-item dropdown">
-                <a href="profile-settings.html"  aria-expanded="false" class=" nav-link">
+                <a href="profile-settings.php"  aria-expanded="false" class=" nav-link">
                   <i class="fe fe-16 fe-settings"></i>
                   <span class="ml-3 item-text">Settings</span>
                 </a>              
@@ -410,7 +410,7 @@
 
       function cb(start, end)
       {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#reportrange span').php(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
       }
       $('#reportrange').daterangepicker(
       {
