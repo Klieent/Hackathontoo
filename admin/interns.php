@@ -139,6 +139,8 @@
                   <?php 
                     $interns = getAll('intern');
                     while($intern = mysqli_fetch_assoc($interns)){
+
+                      $school = mysqli_fetch_assoc(getRecord('school','school_id',$intern['school_id']));
                   ?>
                   <tr>
                     <td><?php echo $intern['intern_id']?></td>
@@ -148,7 +150,7 @@
                     <td><?php echo $intern['address']?></td>
                     <td><?php echo $intern['email']?></td>
                     <td><?php echo $intern['contact_number']?></td>
-                    <td><?php echo $intern['school']?></td>                    
+                    <td><?php echo $school['name'] ?></td>                    
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td>
                       <div class="dropdown">
@@ -217,9 +219,15 @@
                             </div>
                             <div class="col">
                               <label for="example-select">School</label>
+                              
                                   <select class="form-control" name="school" id="example-select">
-                                    <option value="1">School1</option>
-                                    <option value="2">School2</option>
+                                    <?php $schools = getAll('school');
+                                      while($school = mysqli_fetch_assoc($schools)){
+                              
+                                    ?>
+                                    <option value="<?php echo $school['school_id']?>" <?php if($school['school_id'] == $intern['school_id']){ ?>selected <?php }?>><?php echo $school['name']?></option>
+                                   
+                                    <?php }?>
                                    
                                   </select>
                             </div>
@@ -335,11 +343,19 @@
                   </div>
                   <div class="col">
                     <label for="example-select">School</label>
-                        <select class="form-control" id="example-select" name="school">
-                          <option value="1">School1</option>
-                          <option value="2">School2</option>
-                          
-                        </select>
+                       <select class="form-control" name="school_id" id="example-select">
+                                    <?php $schools = getAll('school');
+                                      while($school = mysqli_fetch_assoc($schools)){
+                              
+                                    ?>
+                                    <option value="<?php echo $school['school_id']?>">
+                                    
+                                    <?php echo $school['name']?>
+                                    </option>
+                                   
+                                    <?php }?>
+                                   
+                                  </select>
                   </div>
                 </div>
                 <br>

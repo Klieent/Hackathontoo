@@ -135,6 +135,8 @@
                    <?php 
                     $mentors = getAll('mentor');
                     while($mentor = mysqli_fetch_assoc($mentors)){
+
+                      $department = mysqli_fetch_assoc(getRecord('department','department_id',$mentor['department_id']));
                   ?>
                   <tr>
                     <td><?php echo $mentor['mentor_id'] ?></td>
@@ -142,7 +144,7 @@
                     
                     <td><?php echo $mentor['email'] ?></td>
                     <td><?php echo $mentor['contact_number'] ?></td>
-                    <td><?php echo $mentor['department'] ?></td>                    
+                    <td><?php echo $department['name'] ?></td>                    
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td>
                       <div class="dropdown">
@@ -198,10 +200,15 @@
                             </div>
                             <div class="col">
                               <label for="example-select">Department</label>
-                              <select class="form-control" id="example-select" name="department">
-                                <option value="1">Department1</option>
-                                <option value="2">Department2</option>
-                             
+                              <select class="form-control" id="example-select" name="department_id">
+                                <?php 
+                                  $departments = getAll("department");
+                                  while($department = mysqli_fetch_assoc($departments)){
+                                ?>
+                                <option value="<?php echo $department['department_id']?>" <?php if($department['department_id'] == $mentor['department_id']){?> selected <?php }?>><?php echo $department['name']?></option>
+                                
+                                <?php }?>
+                              
                               </select>
                             </div>
                           </div>
@@ -303,9 +310,14 @@
                   </div>
                   <div class="col">
                     <label for="example-select">Department</label>
-                    <select class="form-control" id="example-select" name="department">
-                      <option value="1">Department1</option>
-                      <option value="2">Department2</option>
+                    <select class="form-control" id="example-select" name="department_id">
+                      <?php 
+                        $departments = getAll("department");
+                        while($department = mysqli_fetch_assoc($departments)){
+                      ?>
+                      <option value="<?php echo $department['department_id']?>"><?php echo $department['name']?></option>
+                      
+                      <?php }?>
                      
                     </select>
                   </div>

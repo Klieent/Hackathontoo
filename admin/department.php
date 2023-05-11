@@ -1,30 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./assets/images/talleco_logo_bg.png">
-    <title>Department</title>
-
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
-    <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+     <?php include('includes/head.inc.php');
+        include '../Model/db.php';
+     
+      ?>
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -142,16 +122,23 @@
               <!-- start table -->
               <table class="table border table-hover bg-white">
                 <thead>
+
+                 
                   <tr role="row">
                     <th><span class="pl-5">#</span></th>
                     <th><center>Department Name</center></th>
                     <th class=""><span class="float-right pr-5">Action</span></th>
                   </tr>
+                 
                 </thead>
                 <tbody>
+                   <?php 
+                    $departments = getAll('department');
+                    while($department = mysqli_fetch_assoc($departments)){
+                  ?>
                   <tr>
-                    <td><span class="pl-5">1331</span></td>
-                    <td><center>Reveen Noe Beltran</center></td>              
+                    <td><span class="pl-5"><?php echo $department['department_id']?></span></td>
+                    <td><center><?php echo $department['name']?></center></td>              
                     <!-- <td><span class="dot dot-lg bg-success mr-2"></span>&nbsp;Active</td>                     -->
                     <td><span class="float-right pr-5">
                       <div class="dropdown">
@@ -159,12 +146,76 @@
                           <span class="text-muted sr-only">Action</span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item btn mb-2 btn-primary" href="#" type="button" data-toggle="modal" data-target="#verticalModalEdit">Edit</a>
-                          <a class="dropdown-item" href="#">Delete</a>
+                          <a class="dropdown-item btn mb-2 btn-primary" href="#" type="button" data-toggle="modal" data-target="#edit<?php echo $department['department_id']?>">Edit</a>
+                          <a class="dropdown-item" href="#" type="button" data-toggle="modal" data-target="#delete<?php echo $department['department_id']?>">Delete</a>
                         </div>
                       </div>
-                      </span></td>
+                      </span>
+                    </td>
                   </tr>
+                  <?php 
+                  $department = mysqli_fetch_assoc(getRecord('department','department_id',$department['department_id']));
+                   ?>
+                    <div class="modal fade modal-input" id="edit<?php echo $department['department_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-xl" role="document">
+                        <form action="../Controller/DepartmentController.php?department_id=<?php echo $department['department_id']?>" method="POST">
+                        <div class="modal-content ">
+                          <div class="modal-header">
+                            <h1 class="modal-title" id="verticalModalTitle">Edit Department</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+
+                          <div class="modal-body">
+                            <div class="row p-3">
+                                <label for="simpleinput">Department Name</label>
+                                <input type="text" id="simpleinput" class="form-control" name="name" value="<?php echo $department['name']?>">
+                            </div>
+                            <br>
+                          </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn mb-2 btn-primary" name="editDepartment">Edit</button>
+                            </div>
+                          </div>
+                          </form>
+                      </div>
+                      
+                  </div>
+
+                    <div class="modal fade modal-input" id="delete<?php echo $department['department_id']?>" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                      <form action="../Controller/DepartmentController.php?department_id=<?php echo $department['department_id']?>" method="POST">
+                      <div class="modal-content ">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="verticalModalTitle">Delete Department</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <div class="modal-body">
+                          <p>
+                           This action cannot be undone.
+                          </p>
+                        </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn mb-2 btn-primary" name="deleteDepartment">Delete</button>
+                          </div>
+                        </div>
+                        </form>
+                        
+                    
+                    </div>
+                    
+                  </div>
+
+
+
+                   <?php }?>
                 </tbody>
               </table>
               <!-- end table -->
@@ -175,7 +226,8 @@
 
         <!-- start modal add -->
         <div class="modal fade modal-input" id="verticalModal" tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-dialog modal-xl" role="document">'
+            <form action = "../Controller/DepartmentController.php" method="POST">
             <div class="modal-content ">
               <div class="modal-header">
                 <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
@@ -187,48 +239,23 @@
               <div class="modal-body">
                 <div class="row p-3">
                     <label for="simpleinput">Department Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
+                    <input type="text" id="simpleinput" class="form-control" name="name">
                 </div>
                 <br>
               </div>
                 <div class="modal-footer">
                   <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
+                  <button type="submit" class="btn mb-2 btn-primary" name="addDepartment">Add</button>
                 </div>
               </div>
-              
+              </form>
           </div>
           
         </div>
         <!-- end modal add -->
 
         <!-- start modal edit -->
-        <div class="modal fade modal-input" id="verticalModalEdit   " tabindex="-1" role="dialog" aria-labelledby="verticalModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content ">
-              <div class="modal-header">
-                <h1 class="modal-title" id="verticalModalTitle">Edit Department</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <div class="row p-3">
-                    <label for="simpleinput">Department Name</label>
-                    <input type="text" id="simpleinput" class="form-control">
-                </div>
-                <br>
-              </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn mb-2 btn-primary">Add</button>
-                </div>
-              </div>
-              
-          </div>
-          
-        </div>
+      
         <!-- end modal edit -->
 
         <!-- start notifications -->
