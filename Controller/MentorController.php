@@ -2,7 +2,7 @@
 
 include "../Model/db.php";
 
-
+session_start();
 if(isset($_POST['addMentor'])){
 
     $firstname = $_POST['firstname'];
@@ -47,4 +47,23 @@ if(isset($_POST['deleteMentor'])){
     header("Location: ../admin/mentors.php");
 
 
+}
+
+
+if(isset($_POST['login'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $check = login('mentor',$username,$password);
+
+    if(mysqli_num_rows($check) > 0){
+        $account = mysqli_fetch_assoc($check);
+        $_SESSION['mentor_id'] = $account['mentor_id'];
+        header("Location: ../mentor/dashboard.php");
+    }else{
+        echo "<script>
+        alert('Invalid Username or Password');
+        window.location.href = '../mentor';
+        </script>";
+    }
 }
