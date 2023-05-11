@@ -95,11 +95,11 @@
                 <li class="nav-item">
                   <a class="nav-link  h4" href="index.php" >Lessons</a>
                 </li>
-                  <li class="nav-item">
-                  <a class="nav-link h4 active" id="profile-tab" href="classwork.php">Activity</a>
+                <li class="nav-item">
+                <a class="nav-link h4" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link h4" id="contact-tab" href="interns.php">Interns</a>
+                    <a class="nav-link h4 active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Interns</a>
                   </li>
                 </ul>
 
@@ -107,25 +107,31 @@
                 <div class="tab-content" id="myTabContent">
                   <!-- start lesson -->
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div>
-                      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#verticalModal">Add Activity</button>
-                    </div>
                     <br>
                     <!-- start main bodyyyy -->
-                    <div class="main-body">
-                      <div class="card shadow ">
-                        <div class="card-body">
-                          <h3 class="mb-0 mt-3"><u>{Activity name}</u></h3>
-                          <br>
-                          <p>
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                          </p>
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div><!-- start main bodyyyy -->
-                  
-                  <!-- start lesson -->
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-body mb-3">
+                        <div class="card shadow ">
+                            <div class="card-body">
+                                <h5 class="mb-0 mt-1">Reevenn Noe Beltran</h5>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- start main bodyyyy -->
 
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <h5 class="mb-0 mt-5">Activity</h5>
@@ -149,7 +155,7 @@
                   <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content ">
                       <div class="modal-header">
-                        <h1 class="modal-title" id="verticalModalTitle">Add Activity</h1>
+                        <h1 class="modal-title" id="verticalModalTitle">Add Intern</h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>

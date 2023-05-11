@@ -99,7 +99,7 @@
                     <a class="nav-link h4" id="profile-tab" href="classwork.php">Activity</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link h4" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Interns</a>
+                    <a class="nav-link h4" id="contact-tab" href="interns.php" >Interns</a>
                   </li>
                 </ul>
 
