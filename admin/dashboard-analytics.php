@@ -68,7 +68,7 @@
                 <span class="ml-3 item-text">Dashboard</span>
               </a>              
             </li>
-          </ul>         
+          </ul>
           
           <ul class="navbar-nav flex-fill w-100 mb-2">            
             <li class="nav-item dropdown">
