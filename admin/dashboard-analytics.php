@@ -56,7 +56,7 @@
               <img src="./assets/images/talleco.png" alt="" class="rounded" width="80%">
               <br>
               <p class="text-muted nav-heading mt-4 mb-1">
-                <span><u>Admin</u></span>
+                <span><u>DEPARTMENT</u></span>
               </p>
             </a>
           </div>
@@ -81,20 +81,24 @@
                 <a class="nav-link pl-3" href="./interns.php"><span class="ml-1">Interns</span></a>
                 
               </ul>
-              <!-- <li class="nav-item dropdown">
-                <a href="./subscription.php"  aria-expanded="false" class=" nav-link">
-                  <i class="fe fe-credit-card fe-16"></i>
-                  <span class="ml-3 item-text">Subscription Management</span>
-                </a>              
-              </li>
-              <li class="nav-item dropdown">
-                <a href="profile-settings.php"  aria-expanded="false" class=" nav-link">
-                  <i class="fe fe-16 fe-settings"></i>
-                  <span class="ml-3 item-text">Settings</span>
-                </a>              
-              </li> -->
             </li>
           </ul>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a href="department.php" aria-expanded="false" class=" nav-link">
+                <i class="fe fe-home fe-16"></i>
+                <span class="ml-3 item-text">Department Management</span>
+              </a>              
+            </li>
+          </ul> 
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a href="school.php" aria-expanded="false" class=" nav-link">
+                <i class="fe fe-home fe-16"></i>
+                <span class="ml-3 item-text">School Management</span>
+              </a>              
+            </li>
+          </ul> 
         </nav>
       </aside>
       <!-- end sidebar -->
