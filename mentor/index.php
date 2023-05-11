@@ -121,7 +121,7 @@
                           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </div>
-                        <div class=" mt-2 p-3 rounded " style="border-color:black; border-style: solid; border-left:none; border-right:none; width:99%; margin:auto;">
+                        <!-- <div class=" mt-2 p-3 rounded " style="border-color:black; border-style: solid; border-left:none; border-right:none; width:99%; margin:auto;">
                           <div class="comment row pl-3 mb-2">
                             <div class="" style="width:10%;">
                               <img src="./assets/images/profile.png" class="avatar-img rounded-circle" style="width:65%;" alt="">
@@ -142,7 +142,7 @@
                             <button class="btn btn-success">Submit</button>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div><!-- start main bodyyyy -->
                   
